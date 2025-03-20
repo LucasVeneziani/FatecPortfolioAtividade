@@ -42,7 +42,7 @@ var particleSystem = null;
     "finishAlpha": "0",
     "finishAlphaVariance": 0,
     "shapeIdList": [
-        "triangle"
+        "triangle", "circle", "star"
     ],
     "startColor": {
         "hue": 25,
