@@ -19,24 +19,21 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    display: grid;
-    grid-template-areas:
-    "header header header"
-    "aside" "main" "aside"
-    "footer footer footer";
-    grid-template-columns: 1fr 2.5fr 1fr;
     gap: 5px;
     background-color: #000000;
     margin-top: var(--headerMarginTop);
     overflow-x: hidden;
 }
+div{
+    z-index: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px 5px;
+}
 header{
     display: flex;
     justify-content: space-around;
     width: 100%;
-    grid-area: "header";
-    grid-column: 1/4;
     margin: 0.1rem;
     color: white;
     box-sizing: border-box;
@@ -56,11 +53,10 @@ main{
 
     background-color: var(--corSecoes);
     margin: var(--MarginPagina);
-    grid-area: "main";
     width: 95%;
     justify-self: center;
     color: white;
-    box-shadow: -1px 0px 10px 2px rgb(3, 1, 37);
+    box-shadow: -1px 0px 5px 2px rgb(3, 1, 37);
     border-radius: 15px;
     z-index: 1;
     grid-column: 2/3;
@@ -71,8 +67,7 @@ main h1{
     text-align: center;
 }
 aside{
-    grid-area: "aside";
-    width: 95%;
+    width: 200px;
     z-index: 1;
     margin: var(--MarginPagina);
     grid-row: 2;
@@ -83,20 +78,26 @@ aside section{
     padding: 5px;
 }
 .asideEsquerda{
-    grid-column: 1/2;
 }
 .asideDireita{
-    grid-column: 3/3;
 }
 .principal{
     padding: 10px;
 }
-
+#secao{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+    text-align: center;
+}
 #secao p{
 width: 100%;
 font-size: 0.7em;
+word-break: break-all;
+width: fit-content;
  height: fit-content;
- white-space: wrap;
  display: flex;
  text-align: center;
  padding: 5px;
@@ -117,7 +118,7 @@ nav{
 #myCanvas{
     width: 2000pX;
     /* height: calc(var(--headerSize) - 25px); */
-    height: 1200px;
+    height: 1700px;
     display: flex;
     position: absolute;
     justify-content: center;
@@ -132,7 +133,8 @@ nav ul {
     list-style-type: none;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
+    width: 100%;
 }
 nav ul li {
     display: flex;
@@ -140,6 +142,7 @@ nav ul li {
     height: inherit;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 nav h1 {
     color: white;
@@ -158,9 +161,36 @@ nav ul li p {
 
 footer{
     width: 100%;
-    grid-area: "footer";
-    grid-column: 1/4;
     z-index: 1;
+    margin-top: var(--headerMarginTop);
+    z-index: 1;
+    border-top: var(--corSecoesBorda) 5px solid;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+footer h2{
+    filter: drop-shadow(0px 0px 0.4vh rgba(255, 255, 255, 0.67));
+}
+footer ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+footer ul li{
+    justify-self: center;
+    text-align: center;
+}
+footer ul a{
+    text-decoration: none;
+    color: white;
+    filter: drop-shadow(0px 0px 0.4vh rgba(255, 255, 255, 0.67));
+}
+
+footer ul a:hover{
+    filter: drop-shadow(0px 0px 0.7vh rgba(255, 255, 255, 0.67));
 }
 #modal{
     position:absolute;
@@ -185,7 +215,6 @@ footer{
     height: 1fr;
     background-color: var(--corSecoes);
     margin: var(--MarginPagina);
-    grid-area: "main";
     width: 95%;
     justify-self: center;
     color: white;

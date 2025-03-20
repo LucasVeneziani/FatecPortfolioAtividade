@@ -22,7 +22,7 @@ var particleSystem = null;
     "emitFrequency": 3000,
     "startX": 1500,
     "startXVariance": "3000",
-    "startY": 2000,
+    "startY": 2500,
     "startYVariance": "3000",
     "initialDirection": 0,
     "initialDirectionVariance": 360,
