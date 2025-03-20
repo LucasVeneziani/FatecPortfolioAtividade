@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+node_modules
+typings
+*.map
+src/**/*.js
+!src/asset-shapes.js
+tmp/
+/.idea
+/yarn.lock
+/particlejs.js.tmp

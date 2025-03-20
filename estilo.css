@@ -1,0 +1,196 @@
+:root{
+    --headerMarginTop: 2.5rem;
+    --headerSize: 200px;
+    --MarginPagina: 5px;
+
+    --corSecoes:   rgba(3, 1, 37, 0.661);
+    --corSecoesBorda: rgb(3, 31, 73);
+    --corSombra: rgb(3, 1, 37);
+    --corPreta: black;
+}
+html{
+    font-size: 24px;
+}
+h1{
+    /* o rem pai de todos = root */
+    font-size: 2rem;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-areas:
+    "header header header"
+    "aside" "main" "aside"
+    "footer footer footer";
+    grid-template-columns: 1fr 2.5fr 1fr;
+    gap: 5px;
+    background-color: #000000;
+    margin-top: var(--headerMarginTop);
+    overflow-x: hidden;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    grid-area: "header";
+    grid-column: 1/4;
+    margin: 0.1rem;
+    color: white;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-direction: column;
+}
+header h1{
+    justify-self: center;
+    align-self: center;
+}
+section{
+    border: solid 2px var(--corSecoesBorda);
+    border-radius: 15px;
+
+}
+main{
+
+    background-color: var(--corSecoes);
+    margin: var(--MarginPagina);
+    grid-area: "main";
+    width: 95%;
+    justify-self: center;
+    color: white;
+    box-shadow: -1px 0px 10px 2px rgb(3, 1, 37);
+    border-radius: 15px;
+    z-index: 1;
+    grid-column: 2/3;
+    grid-row: 2;
+}
+main h1{
+    filter: drop-shadow(0px 0px 0.4vh rgba(255, 255, 255, 0.67));
+    text-align: center;
+}
+aside{
+    grid-area: "aside";
+    width: 95%;
+    z-index: 1;
+    margin: var(--MarginPagina);
+    grid-row: 2;
+    box-sizing: border-box;
+    display: flex;
+}
+aside section{
+    padding: 5px;
+}
+.asideEsquerda{
+    grid-column: 1/2;
+}
+.asideDireita{
+    grid-column: 3/3;
+}
+.principal{
+    padding: 10px;
+}
+
+#secao p{
+width: 100%;
+font-size: 0.7em;
+ height: fit-content;
+ white-space: wrap;
+ display: flex;
+ text-align: center;
+ padding: 5px;
+}
+nav{
+    filter: drop-shadow(0px 0.1vh 0.5vh rgb(3, 8, 38));
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--headerMarginTop);
+    position: fixed;
+    top: 0;
+    background-color: rgb(5, 3, 34);
+    z-index: 10;
+}
+#myCanvas{
+    width: 2000pX;
+    /* height: calc(var(--headerSize) - 25px); */
+    height: 1200px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+#myCanvas h1{
+    color: white;
+    height: var(--headerSize);
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+nav ul li {
+    display: flex;
+    margin-right: 10px;
+    height: inherit;
+    align-items: center;
+    justify-content: center;
+}
+nav h1 {
+    color: white;
+    text-shadow: 1px 1px 1px 1px white;
+    height: 0.3em;
+    width: 50%;
+    filter: drop-shadow(0px 0px 0.4vh #c3c3ff);
+    display: flex;
+    align-items: center;
+}
+nav ul li p {
+    font-size: 2em;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer{
+    width: 100%;
+    grid-area: "footer";
+    grid-column: 1/4;
+    z-index: 1;
+}
+#modal{
+    position:absolute;
+    top: 50%;
+    background-color: white;
+    left: 100px;
+    display: none;
+    border: green 1px solid;
+    box-shadow: 3px 6px 6px 2px rgb(6, 158, 123);
+    width: 70%;
+    height: 200px;
+}
+  
+#grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: 200px auto;
+}
+
+#secao{
+    width: 1fr;
+    height: 1fr;
+    background-color: var(--corSecoes);
+    margin: var(--MarginPagina);
+    grid-area: "main";
+    width: 95%;
+    justify-self: center;
+    color: white;
+    box-shadow: -1px 0px 10px 2px var(--corSombra);
+    border-radius: 15px;
+    z-index: 1;
+    border: solid 2px var(--corSecoesBorda);
+}

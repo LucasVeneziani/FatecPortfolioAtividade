@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=960px, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="google" content="notranslate"/>
+  <meta name="referrer" content="unsafe-url"/>
+
+  <title>ParticleJS - デモ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs2015.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      background: #323232;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 960px;
+      height: 540px;
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .code-box {
+      max-width: 960px;
+    }
+
+    .hljs {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .hljs-comment, .hljs-quote {
+      font-style: normal !important;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="canvas-box">
+      <iframe src="../../examples/color-change.html">
+      </iframe>
+    </div>
+    <div class="code-box">
+      <pre class="mycode"><code class="js">&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;/&gt;
+  &lt;title&gt;ParticleJS - デモ&lt;/title&gt;
+
+  &lt;!-- CreateJSのライブラリー読み込み --&gt;
+  &lt;script src=&quot;https://code.createjs.com/1.0.0/createjs.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;!-- パーティクルシステムのライブラリー読み込み --&gt;
+  &lt;script src=&quot;../libs/particlejs.min.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- JS --&gt;
+  &lt;script&gt;
+    var particleSystem = null;
+    var stage = null;
+
+    //  ウィンドウのロードが終わり次第、初期化コードを呼び出す。
+    window.addEventListener(&quot;load&quot;, function () {
+      // Stageオブジェクトを作成します。表示リストのルートになります。
+      stage = new createjs.Stage(&quot;myCanvas&quot;);
+
+      // パーティクルシステム作成します。
+      particleSystem = new particlejs.ParticleSystem();
+
+      // パーティクルシステムの描画コンテナーを表示リストに登録します。
+      stage.addChild(particleSystem.container);
+
+      // Particle Develop( http://ics-web.jp/projects/particle-develop/ ) から書きだしたパーティクルの設定を読み込む
+      particleSystem.importFromJson(
+        // パラメーターJSONのコピー＆ペースト ここから--
+        {
+          &quot;bgColor&quot;: &quot;#00000&quot;,
+          &quot;width&quot;: 838,
+          &quot;height&quot;: 607,
+          &quot;emitFrequency&quot;: &quot;38&quot;,
+          &quot;startX&quot;: 480,
+          &quot;startXVariance&quot;: &quot;570&quot;,
+          &quot;startY&quot;: 304,
+          &quot;startYVariance&quot;: &quot;98&quot;,
+          &quot;initialDirection&quot;: &quot;0&quot;,
+          &quot;initialDirectionVariance&quot;: &quot;0&quot;,
+          &quot;initialSpeed&quot;: &quot;0&quot;,
+          &quot;initialSpeedVariance&quot;: &quot;0&quot;,
+          &quot;friction&quot;: &quot;0&quot;,
+          &quot;accelerationSpeed&quot;: &quot;0&quot;,
+          &quot;accelerationDirection&quot;: &quot;0&quot;,
+          &quot;startScale&quot;: &quot;0.98&quot;,
+          &quot;startScaleVariance&quot;: &quot;1&quot;,
+          &quot;finishScale&quot;: &quot;0.07&quot;,
+          &quot;finishScaleVariance&quot;: &quot;0.23&quot;,
+          &quot;lifeSpan&quot;: &quot;27&quot;,
+          &quot;lifeSpanVariance&quot;: &quot;93&quot;,
+          &quot;startAlpha&quot;: &quot;1&quot;,
+          &quot;startAlphaVariance&quot;: &quot;0&quot;,
+          &quot;finishAlpha&quot;: &quot;0.34&quot;,
+          &quot;finishAlphaVariance&quot;: 0.5,
+          &quot;shapeIdList&quot;: [
+            &quot;blur_circle&quot;,
+            &quot;kirakira2&quot;,
+            &quot;kirakira&quot;,
+            &quot;star&quot;
+          ],
+          &quot;startColor&quot;: {
+            &quot;hue&quot;: &quot;88&quot;,
+            &quot;hueVariance&quot;: &quot;99&quot;,
+            &quot;saturation&quot;: &quot;76&quot;,
+            &quot;saturationVariance&quot;: &quot;0&quot;,
+            &quot;luminance&quot;: &quot;77&quot;,
+            &quot;luminanceVariance&quot;: &quot;46&quot;
+          },
+          &quot;blendMode&quot;: true,
+          &quot;alphaCurveType&quot;: &quot;0&quot;
+        }
+        // パラメーターJSONのコピー＆ペースト ここまで---
+      );
+
+      // フレームレートの設定
+      createjs.Ticker.framerate = 60;
+      // requestAnimationFrameに従った呼び出し
+      createjs.Ticker.timingMode = createjs.Ticker.RAF;
+      // 定期的に呼ばれる関数を登録
+      createjs.Ticker.addEventListener(&quot;tick&quot;, handleTick);
+    });
+
+    function handleTick() {
+      // 時間経過によって色相の基準値を変化させる
+      particleSystem.startColor.hue += 2;
+      if (particleSystem.startColor.hue &gt;= 360) {
+        particleSystem.startColor.hue = 0;
+      }
+
+      // パーティクルの発生・更新
+      particleSystem.update();
+
+      // 描画を更新する
+      stage.update();
+    }
+  &lt;/script&gt;
+
+  &lt;!-- CSS --&gt;
+  &lt;style&gt;
+    canvas {
+      background-color: black;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #323232;
+      overflow: hidden;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas width=&quot;960&quot; height=&quot;540&quot; id=&quot;myCanvas&quot;&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

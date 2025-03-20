@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--style css externo-->
+    <link rel="stylesheet" href="estilo.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <!--style css interno || css critico -->
+    <script src="assets/createjs.min.js"></script>
+    <script src="assets/ParticleJS-release-1.0.0/libs/particlejs.min.js"></script>
+
+</head>
+<body>
+    <div id="modal">
+        <div>
+            <h1>Site em construçao</h1>
+            <p>Bem vindo amigo!!!</p>
+        </div>
+    </div>
+    <nav>
+         <h1>Meu Portfolio</h1>
+        <ul>
+            <li><p>Olá Bem vindo</p></li>
+        </ul>
+    </nav>
+    <header>
+        <canvas id="myCanvas" width="4000px" height="2400px"></canvas>
+        <h1>Lucas Lemos Veneziani</h1>
+        <h3>Olá Meu nome é Lucas Lemos e esta página de portfólio é uma atividade para ser entregue na fatec</h3>
+    </header>
+    <main class="principal" id="app">
+        <section class="principal">
+            <h1>Biografia</h1>
+            <p>Acredito que eu seja uma pessoa bem padrão, tenho 18 anos atualmente e estou cursando na Fatec Itaquera, que fica perto do Shopping Itaquera</p>
+        </section>
+        <section class="principal">
+            <h1>Experiencias Pessoais</h1>
+            <p>Cursei na Etec e agora estou cursando na Fatec</p>
+        </section>
+        <section class="w3-card">
+            <h1>Projetos</h1>
+            <p>Este projeto é um exemplo deles</p>
+        </section>
+    </main>
+    <aside class="asideEsquerda">
+        <div id="grid-container">
+            <section id="secao"><p>Localização: Fatec Itaquera</p></section>
+            <section id="secao"><p>Contato Rápido: lucas.veneziani@fatec.sp.gov.br</p></section>
+            <section id="secao"><p>educação: Atualmente estudo na Fatec Itaquera</p></section>
+        </div>
+    </aside>
+    <aside class="asideDireita">
+        <div id="grid-container">
+            <section id="secao"><p>Habilidades: Front-End, Modelagem 3D, Blender, etc</p></section>
+            <section id="secao"><p>Idiomas: Ingles e Português</p></section>
+            <section id="secao"></section>
+        </div>
+    </aside>
+    <!-- style css iline-->
+    <footer style="background-color: rgb(0, 0, 0); border: 3px dashed red; color:aqua">
+        <h1>Aqui é o rodapé</h1>
+        <ul>
+            <li><a href="#">initial</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        setTimeout(() => {
+            document.getElementById("modal").style.display = "none"
+            
+        }, 3000);
+    })
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
