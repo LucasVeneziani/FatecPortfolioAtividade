@@ -117,7 +117,7 @@ nav{
     z-index: 10;
 }
 #myCanvas{
-    width: 2000pX;
+    width: 100%;
     /* height: calc(var(--headerSize) - 25px); */
     height: 1700px;
     display: flex;
