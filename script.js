@@ -19,7 +19,7 @@ var particleSystem = null;
     "bgColor": "#00000",
     "width": 4000,
     "height": 4000,
-    "emitFrequency": 3000,
+    "emitFrequency": 1000,
     "startX": 1500,
     "startXVariance": "3000",
     "startY": 2500,
@@ -29,10 +29,10 @@ var particleSystem = null;
     "initialSpeed": 1,
     "initialSpeedVariance": "0",
     "friction": -0.01,
-    "accelerationSpeed": 0,
-    "accelerationDirection": 0,
-    "startScale": "0.01",
-    "startScaleVariance": "0",
+    "accelerationSpeed": 0.0,
+    "accelerationDirection": 90,
+    "startScale": "0.2",
+    "startScaleVariance": "0.2",
     "finishScale": "0",
     "finishScaleVariance": "0.5",
     "lifeSpan": "200",
@@ -42,12 +42,12 @@ var particleSystem = null;
     "finishAlpha": "0",
     "finishAlphaVariance": 0,
     "shapeIdList": [
-        "circle"
+        "triangle"
     ],
     "startColor": {
         "hue": 25,
-        "hueVariance": 20,
-        "saturation": 0,
+        "hueVariance": 344,
+        "saturation": 255,
         "saturationVariance": 0,
         "luminance": 40,
         "luminanceVariance": 100
