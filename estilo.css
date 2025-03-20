@@ -211,8 +211,6 @@ footer ul a:hover{
 }
 
 #secao{
-    width: 1fr;
-    height: 1fr;
     background-color: var(--corSecoes);
     margin: var(--MarginPagina);
     width: 95%;
